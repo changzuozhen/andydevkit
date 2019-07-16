@@ -1,0 +1,113 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+        // google()
+        // jcenter()
+
+        // apache snapshots	proxy	SNAPSHOT
+        maven { url 'https://maven.aliyun.com/repository/apache-snapshots' }
+
+        // central	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/central' }
+
+        // google	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/google' }
+
+        // gradle-plugin	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+
+        // jcenter	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+
+        // spring	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/spring' }
+
+        // spring-plugin	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
+
+        // public	group	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/public' }
+
+        // releases	hosted	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/releases' }
+
+        // snapshots	hosted	SNAPSHOT
+        maven { url 'https://maven.aliyun.com/repository/snapshots' }
+
+        // grails-core	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/grails-core' }
+
+        // mapr-public	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/mapr-public' }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.2'
+        //        classpath 'com.novoda:bintray-release:0.9'
+        //        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        // google()
+        // jcenter()
+        // apache snapshots	proxy	SNAPSHOT
+        maven { url 'https://maven.aliyun.com/repository/apache-snapshots' }
+
+        // central	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/central' }
+
+        // google	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/google' }
+
+        // gradle-plugin	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+
+        // jcenter	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+
+        // spring	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/spring' }
+
+        // spring-plugin	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
+
+        // public	group	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/public' }
+
+        // releases	hosted	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/releases' }
+
+        // snapshots	hosted	SNAPSHOT
+        maven { url 'https://maven.aliyun.com/repository/snapshots' }
+
+        // grails-core	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/grails-core' }
+
+        // mapr-public	proxy	RELEASE
+        maven { url 'https://maven.aliyun.com/repository/mapr-public' }
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+//ifconfig en0 | grep inet | grep -v inet6 | cut -d ' ' -f2
+def getLocalIPv4() {
+    def p = "ifconfig en0".execute() |
+            "grep inet".execute() |
+            "grep -v inet6".execute() |
+            ["cut", "-d", " ", "-f2"].execute()
+    p.waitFor()
+    return p.text.trim()
+}
+
+// Define global versions
+apply from: project.file('./commonDepConfig.gradle')

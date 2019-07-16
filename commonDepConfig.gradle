@@ -1,0 +1,12 @@
+ext {
+    supportVersion = "26.1.0"
+    supportV4 = "com.android.support:support-v4:$supportVersion"
+    supportDesign = "com.android.support:design:$supportVersion"
+    supportAnnotations = "com.android.support:support-annotations:$supportVersion"
+    supportAppCompat = "com.android.support:appcompat-v7:$supportVersion"
+    recyclerView = "com.android.support:recyclerview-v7:$supportVersion"
+    cardView = "com.android.support:cardview-v7:$supportVersion"
+    gridlayout = "com.android.support:gridlayout-v7:$supportVersion"
+    fragment = "com.android.support:support-fragment:$supportVersion"
+    transition = "com.android.support:transition:$supportVersion"
+}
