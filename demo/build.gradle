@@ -35,6 +35,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
 //    implementation project(":tools")
-    implementation(group: 'com.didi.soda', name: 'andydevkit', version: '0.0.2')
+    implementation('com.didi.soda:andydevkit:0.0.1')
 //    implementation(group: 'com.didi.soda', name: 'andydevkit', version: '0.0.1-SNAPSHOT')
+//    implementation(group: 'com.didi.soda', name: 'andydevkit', version: '0.0.1')
+//    implementation(group: 'com.didi.soda', name: 'andydevkit', version: '0.0.2')
 }

@@ -1,4 +1,9 @@
 ext {
+    releaseRepoUrl = "https://repo.rdc.aliyun.com/repository/79323-release-fPwfTo/"
+    snapshotRepoUrl = "https://repo.rdc.aliyun.com/repository/79323-snapshot-CivSZT/"
+//    username = ''
+//    password = ''
+
     supportVersion = "26.1.0"
     supportV4 = "com.android.support:support-v4:$supportVersion"
     supportDesign = "com.android.support:design:$supportVersion"

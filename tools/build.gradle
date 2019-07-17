@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'maven'
+//apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
@@ -32,11 +33,32 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 // ./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
-publish {
-    userOrg = 'didi'
-    groupId = 'com.didi.soda'
-    artifactId = 'andydevkit'
-    publishVersion = '0.0.2'
-    desc = 'android dev tools'
-    website = 'https://github.com/changzuozhen/andydevkit'
+//publish {
+//    userOrg = 'didi'
+//    groupId = 'com.didi.soda'
+//    artifactId = 'andydevkit'
+//    publishVersion = '0.0.2'
+//    desc = 'android dev tools'
+//    website = 'https://github.com/changzuozhen/andydevkit'
+//}
+
+def repoVersion = '0.0.1'
+//def repoVersion = '0.0.1-SNAPSHOT'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: rootProject.ext.releaseRepoUrl) {
+                authentication(userName: rootProject.ext.username, password: rootProject.ext.password)
+            }
+            snapshotRepository(url: rootProject.ext.snapshotRepoUrl) {
+                authentication(userName: rootProject.ext.username, password: rootProject.ext.password)
+            }
+            pom.project {
+                groupId "com.didi.soda"
+                artifactId "andydevkit"
+                version repoVersion
+                description "andy dev tools"
+            }
+        }
+    }
 }

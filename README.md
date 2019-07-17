@@ -10,3 +10,5 @@ https://github.com/novoda/bintray-release
 
 # dependencies
 ./gradlew demo:dependencies --configuration releaseRuntimeClasspath > ./docs/dependencies.txt
+
+./gradlew demo:assembleDebug
