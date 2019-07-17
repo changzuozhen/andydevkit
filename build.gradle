@@ -45,6 +45,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
+        classpath 'com.novoda:bintray-release:0.9.1'
         //        classpath 'com.novoda:bintray-release:0.9'
         //        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
         // NOTE: Do not place your application dependencies here; they belong
@@ -56,6 +57,9 @@ allprojects {
     repositories {
         // google()
         // jcenter()
+        maven {
+            url  "https://didi.bintray.com/maven"
+        }
         // apache snapshots	proxy	SNAPSHOT
         maven { url 'https://maven.aliyun.com/repository/apache-snapshots' }
 

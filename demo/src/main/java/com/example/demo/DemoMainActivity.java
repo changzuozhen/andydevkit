@@ -1,12 +1,12 @@
 package com.example.demo;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.didi.soda.andy.tools.LogUtils;
 
-public class DemoMainActivity extends AppCompatActivity {
+public class DemoMainActivity extends Activity {
     private static final String TAG = "DemoMainActivity";
 
     @Override

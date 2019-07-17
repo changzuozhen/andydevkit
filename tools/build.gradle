@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.0"
+    buildToolsVersion "29.0.1"
 
 
     defaultConfig {
@@ -30,4 +30,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+// ./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
+publish {
+    userOrg = 'didi'
+    groupId = 'com.didi.soda'
+    artifactId = 'andydevkit'
+    publishVersion = '0.0.2'
+    desc = 'android dev tools'
+    website = 'https://github.com/changzuozhen/andydevkit'
 }
