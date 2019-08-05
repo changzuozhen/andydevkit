@@ -16,6 +16,6 @@ public class DemoMainActivity extends Activity {
     }
 
     public void btnClick(View view) {
-        LogUtils.d(TAG, "⚠️btnClick() called with: view = [" + view + "]");
+        LogUtils.t(TAG, "⚠️btnClick() called with: view = [" + view + "]");
     }
 }

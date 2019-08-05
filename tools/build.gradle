@@ -36,7 +36,7 @@ publish {
     userOrg = 'didi'
     groupId = 'com.didi.soda'
     artifactId = 'andydevkit'
-    publishVersion = '0.0.2'
+    publishVersion = '0.0.3'
     desc = 'android dev tools'
     website = 'https://github.com/changzuozhen/andydevkit'
 }

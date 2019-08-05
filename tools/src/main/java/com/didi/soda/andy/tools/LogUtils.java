@@ -32,8 +32,8 @@ public final class LogUtils {
         if (S_OPEN_LOG) {
             StackTraceElement ste = new Throwable().getStackTrace()[stackIndex];
             String log = build(msg, ste);
-//            Log.d(logKey, log);
-            Log.d(TAG, "[" + logKey + "]" + log);
+            Log.d(logKey, log);
+//            Log.d(TAG, "[" + logKey + "]" + log);
         }
     }
 
@@ -50,9 +50,8 @@ public final class LogUtils {
         if (S_OPEN_LOG) {
             StackTraceElement ste = new Throwable().getStackTrace()[stackIndex];
             String log = build(msg, ste);
-            Log.i(TAG, "[" + logKey + "]" + log);
-//            Log.i(logKey, log);
-
+            Log.i(logKey, log);
+//            Log.i(TAG, "[" + logKey + "]" + log);
         }
     }
 
@@ -64,7 +63,8 @@ public final class LogUtils {
         if (S_OPEN_LOG) {
             StackTraceElement ste = new Throwable().getStackTrace()[stackIndex];
             String log = build(msg, ste);
-            Log.v(TAG, "[" + logKey + "]" + log);
+            Log.v(logKey, log);
+//            Log.v(TAG, "[" + logKey + "]" + log);
         }
     }
 
@@ -76,7 +76,8 @@ public final class LogUtils {
         if (S_OPEN_LOG) {
             StackTraceElement ste = new Throwable().getStackTrace()[1];
             String log = build(logKey, msg, ste);
-            Log.w(TAG, "[" + logKey + "]" + log);
+            Log.w(logKey, log);
+//            Log.w(TAG, "[" + logKey + "]" + log);
         }
     }
 
@@ -107,21 +108,29 @@ public final class LogUtils {
         if (S_OPEN_LOG) {
             StackTraceElement ste = new Throwable().getStackTrace()[1];
             String log = build(logKey, msg, ste);
-            Log.e(TAG, log, e);
+            Log.d(logKey, log, e);
+//            Log.e(TAG, log, e);
         }
     }
 
     /**
      * 打印调用栈信息
-     *
-     * @param tag tag标签
-     * @param str 内容
      */
-    public static void t(String tag, CharSequence str) {
+    public static void t(String logKey, CharSequence msg) {
         if (S_OPEN_LOG) {
-            LogUtils.i(tag, "DebugInfo: " + str, 2);
-            Throwable e = new Throwable(tag);
-            e.printStackTrace();
+            StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+            StringBuilder sb = new StringBuilder();
+            if (stackTrace.length > 0) {
+                sb.append(build(msg, stackTrace[1]));
+                sb.append('\n');
+            } else {
+                sb.append(msg);
+            }
+            for (int i = 2; i < stackTrace.length; i++) {
+                sb.append(stackTrace[i]);
+                sb.append('\n');
+            }
+            Log.i(logKey, sb.toString());
         }
     }
 
